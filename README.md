@@ -6,7 +6,7 @@ Code can be found in [Bobby.py](https://github.com/C3lineTan/Telegram-bot/blob/m
 - `/start` - to generate a list of available commands
 - `/dog` - to generate a random dog picture
 - `/quote` - to generate a random quote
-- `Random: a, b, ..., c` - to randomly generate a quote (type 'Random:' followed by a list of options separated by commas)
+- `Random: a, b, ..., c` - to randomly generate an option (type 'Random:' followed by a list of options separated by commas)
 
 ## Resources
 - [Dog API](https://dog.ceo/dog-api/): used to generate random dog pictures
