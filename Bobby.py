@@ -8,15 +8,18 @@ application = ApplicationBuilder().token(TOKEN).build()
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await context.bot.send_message(chat_id=update.effective_chat.id, text="Hi! \n\n/dog - generate a random dog pic \n\n/quote - generate a random quote \n\nSend 'Random:' followed by a list of choices seperated by commas to randomly generate a choice \nE.g. 'Random: a, b, c'")
 
+# /dog - to generate a random dog picture
 async def dog(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await context.bot.send_photo(chat_id=update.effective_chat.id, photo=((requests.get("https://dog.ceo/api/breeds/image/random")).json())["message"])
 
+# Random: a, b, ..., c - to randomly generate an option (type 'Random:' followed by a list of options separated by commas)
 async def choose(update: Update, context: ContextTypes.DEFAULT_TYPE):
     msg = (update.message.text).split(':')
     if msg[0] == "random" or msg[0] == "Random":
         msg = msg[1].split(',')
         await context.bot.send_message(chat_id=update.effective_chat.id, text = random.choice(msg))
 
+# /quote - to generate a random quote
 async def quote(update: Update, context: ContextTypes.DEFAULT_TYPE):
     quotes = [' Life is about making an impact, not making an income. --Kevin Kruse',
     'Whatever the mind of man can conceive and believe, it can achieve. –Napoleon Hill',
